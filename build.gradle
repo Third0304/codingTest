@@ -34,6 +34,8 @@ dependencies {
 	annotationProcessor 'org.projectlombok:lombok'
 	testImplementation 'org.springframework.boot:spring-boot-starter-test'
 	testImplementation 'org.mybatis.spring.boot:mybatis-spring-boot-starter-test:3.0.3'
+	implementation 'org.mariadb.jdbc:mariadb-java-client:2.7.1' // 마리아DB JDBC 드라이버 의존성 추가
+    runtimeOnly 'org.mariadb.jdbc:mariadb-java-client:2.7.1' // 실행 시 의존성 추가
 }
 
 tasks.named('test') {
