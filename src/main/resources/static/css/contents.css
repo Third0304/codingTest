@@ -58,3 +58,22 @@ input {
 	border-collapse: collapse;
 }
 
+#random-area {
+	margin: 20px;
+}
+
+#random-area table {
+	width: 100%;
+}
+
+#random-area table th {
+	font-size: 25px;
+	width: 100%;
+	text-align: center;
+	padding-bottom: 20px;
+}
+
+#random-area td {
+	padding: 5px;
+	border: 1px solid black;
+}

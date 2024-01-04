@@ -3,11 +3,8 @@
 <mapper namespace="com.example.demo.dao.RandomDAO">
 	
 	<insert id="addPerson">
-		<selectKey keyProperty="id" resultType="java.lang.Long" order="BEFORE">
-            SELECT COALESCE(MAX(id), 0) + 1 AS ID FROM USER
-        </selectKey>
-			INSERT INTO USER(ID, NAME)
-			VALUES(#{id}, #{name})
+			INSERT INTO USER(NAME)
+			VALUES(#{name})
 	</insert>
 	
 	<delete id="delPerson" parameterType="String">
@@ -24,6 +21,11 @@
 	<select id="getList" resultType="map">
 		SELECT ID, NAME FROM `USER`
 		ORDER BY CAST(ID AS SIGNED)
+	</select>
+	
+	<select id="randomStart" resultType="map">
+		SELECT NAME FROM `USER`
+		ORDER BY RAND()
 	</select>
 	
 </mapper>

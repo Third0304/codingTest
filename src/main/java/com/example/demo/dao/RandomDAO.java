@@ -16,4 +16,6 @@ public interface RandomDAO {
 
 	List<Map<String, Object>> getList();
 
+	List<Map<String, Object>> randomStart();
+
 }

@@ -34,4 +34,9 @@ public class RandomServiceimpl implements RandomService {
 		return randomDao.getList();
 	}
 
+	@Override
+	public List<Map<String, Object>> randomStart() {
+		return randomDao.randomStart();
+	}
+
 }

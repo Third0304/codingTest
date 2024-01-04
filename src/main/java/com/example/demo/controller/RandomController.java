@@ -43,8 +43,14 @@ public class RandomController {
 	
 	@RequestMapping("/getList")
 	public List<Map<String, Object>> getList(Model model) {
-		List<Map<String, Object>> userLIst = randomService.getList();
-		return userLIst;
+		List<Map<String, Object>> userList = randomService.getList();
+		return userList;
+	}
+	
+	@RequestMapping("/randomStart")
+	public List<Map<String, Object>> randomStart(Model model) {
+		List<Map<String, Object>> rsndomList = randomService.randomStart();
+		return rsndomList;
 	}
 	
 }

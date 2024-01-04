@@ -1,9 +1,10 @@
 /**
  * 
  */
-// 버튼 클릭시 모달창
+// 조건을 위한 변수
 var r = 0;
 
+// 버튼 클릭시 모달창
 function btnClick(state) {
 	    var span = document.getElementsByClassName(state)[0];
 	    var modal = document.getElementById(state);
@@ -12,14 +13,17 @@ function btnClick(state) {
 	
 	    span.addEventListener('click', function () {
 	        modal.style.display = 'none';
+	        location.reload();
 	    });
 	
 	    window.addEventListener('click', function (event) {
 	        if (event.target === modal) {
 	            modal.style.display = 'none';
+	            location.reload();
 	        }
 	    });
 	    
+	    // 리스트 불러오기
 	    if (state == "all") {
 			if ( r == 0 ) {
 				$.ajax({
@@ -56,7 +60,7 @@ function addPerson() {
 		datatype:'json',
 		success : function() {
 			alert("success!!");
-			location.reload();
+			name.value = "";
 		 },
         error: function (error) {
             console.error("Error:", error);
@@ -76,7 +80,7 @@ function delPerson() {
 		datatype:'json',
 		success : function() {
 			alert("success!!");
-			location.reload();
+			id.value = "";
 		 },
         error: function (error) {
             console.error("Error:", error);
@@ -98,7 +102,51 @@ function updatePerson() {
 		datatype:'json',
 		success : function() {
 			alert("success!!");
-			location.reload();
+			id.value = "";
+			name.value = "";
+		 },
+        error: function (error) {
+            console.error("Error:", error);
+            alert("error");
+        }
+	});
+};
+
+// 랜덤
+function randomStart() {
+	const groupSize = document.getElementById('groupSize').value;
+	const peoplePerGroup = document.getElementById('peoplePerGroup').value;
+	const element = document.getElementById('random-table');
+  
+ 	element.innerText = '';
+ 	
+	$.ajax({
+		type:'post',
+		url:"/randomStart",
+		datatype:'json',
+		success : function(data) {
+		    var groupedArray = [];
+		
+		// 그룹 나누기
+		    for (let i = 0; i < groupSize; i++) {
+		        const startIdx = i * peoplePerGroup;
+		        const endIdx = startIdx + peoplePerGroup;
+		        const group = data.slice(startIdx, endIdx);
+		
+		        // 그룹의 인원 수가 정해진 인원 수보다 적다면 빈 자리를 채웁니다.
+		        while (group.length < groupSize) {
+		            group.push(null);
+		        }
+		
+		        for ( let j = 0; j < peoplePerGroup; j++ ){
+					if(group[j] != null)
+						groupedArray.push(group[j].NAME);
+				}
+				
+				if( groupedArray.length != 0 )
+		        	$("#random-table").append("<tr><td>" + groupedArray.join(', ') + "</td></tr>");
+		        var groupedArray = [];
+		    }
 		 },
         error: function (error) {
             console.error("Error:", error);

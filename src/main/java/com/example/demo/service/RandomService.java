@@ -13,4 +13,6 @@ public interface RandomService {
 
 	List<Map<String, Object>> getList();
 
+	List<Map<String, Object>> randomStart();
+
 }

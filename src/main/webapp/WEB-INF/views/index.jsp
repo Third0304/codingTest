@@ -13,13 +13,31 @@
 <body>
 	<div id="btnBox">
 		<div id="topBtn">
-			<button class="top-btn btn-2"><span>Randomly into lunch groups</span></button>
+			<button onclick="javascript:btnClick('random')" class="top-btn btn-2"><span>Randomly into lunch groups</span></button>
 		</div>
 		<div id="bottomBtn">
 			<button onclick="javascript:btnClick('add')" class="bottom-btn btn-2"><span>Add a person</span></button>
 			<button onclick="javascript:btnClick('del')" class="bottom-btn btn-2"><span>Delete a person</span></button>
 			<button onclick="javascript:btnClick('update')" class="bottom-btn btn-2"><span>Update a person</span></button>
 			<button onclick="javascript:btnClick('all')" class="bottom-btn btn-2"><span>Get all people</span></button>
+		</div>
+		
+		<div id="random" class="modalBack">
+		    <div class="content-box">
+		        <span class="random close">&times;</span>
+		        <h2>Randomly into lunch groups</h2>
+		        <input id="groupSize" type="text" placeholder="Number of groups">
+		        <input id="peoplePerGroup" type="text" placeholder="Minimum size of people in a group">
+		        <button class="modal-btn btn-2" onclick="javascript:randomStart()"><span>Start</span></button>
+		        <div id="random-area">
+		        	<table>
+		        		<tr>
+		        			<th>Groups</th>
+		        		</tr>
+		        		<tfoot id="random-table"></tfoot>
+		        	</table>
+		        </div>
+		    </div>
 		</div>
 		
 		<div id="add" class="modalBack">
