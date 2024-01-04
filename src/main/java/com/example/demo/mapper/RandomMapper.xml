@@ -14,5 +14,11 @@
         DELETE FROM `USER`
         WHERE ID = #{id}
     </delete>
+    
+    <update id="updatePerson" parameterType="map">
+		UPDATE `USER` SET 
+		NAME = #{name}
+		WHERE ID = #{id}
+	</update>
 	
 </mapper>

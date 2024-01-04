@@ -18,25 +18,35 @@
 		<div id="bottomBtn">
 			<button onclick="javascript:btnClick('add')" class="bottom-btn btn-2"><span>Add a person</span></button>
 			<button onclick="javascript:btnClick('del')" class="bottom-btn btn-2"><span>Delete a person</span></button>
-			<button class="bottom-btn btn-2"><span>Update a person</span></button>
+			<button onclick="javascript:btnClick('update')"class="bottom-btn btn-2"><span>Update a person</span></button>
 			<button class="bottom-btn btn-2"><span>Get all people</span></button>
 		</div>
 		
 		<div id="add" class="modalBack">
-		    <div class="add-content">
+		    <div class="content-box">
 		        <span class="add close">&times;</span>
 		        <h2>Add a person</h2>
-		        <input id="name" type="text" placeholder="Enter name">
+		        <input id="addName" type="text" placeholder="Enter name">
 		        <button class="modal-btn btn-2" onclick="javascript:addPerson()"><span>Add</span></button>
 		    </div>
 		</div>
 		
 		<div id="del" class="modalBack">
-		    <div class="add-content">
+		    <div class="content-box">
 		        <span class="del close">&times;</span>
 		        <h2>Delete a person</h2>
-		        <input id="id" type="text" placeholder="Enter id">
+		        <input id="delId" type="text" placeholder="Enter id">
 		        <button class="modal-btn btn-2" onclick="javascript:delPerson()"><span>Delete</span></button>
+		    </div>
+		</div>
+		
+		<div id=update class="modalBack">
+		    <div class="content-box">
+		        <span class="update close">&times;</span>
+		        <h2>Update a person</h2>
+		        <input id="upId" type="text" placeholder="Enter id">
+		        <input id="upName" type="text" placeholder="Enter name">
+		        <button class="modal-btn btn-2" onclick="javascript:updatePerson()"><span>Update</span></button>
 		    </div>
 		</div>
 	</div>

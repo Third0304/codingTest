@@ -7,11 +7,12 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.example.demo.service.RandomService;
 
-@Controller
+@RestController
 public class RandomController {
 	
 	@Autowired
@@ -23,15 +24,20 @@ public class RandomController {
 		return mav;
 	}
 	
-	@ResponseBody
 	@RequestMapping("/addPerson")
 	public void addPerson(@RequestParam Map<String, Object> param) {
 		randomService.addPerson(param);
 	}
-	@ResponseBody
+	
 	@RequestMapping("/delPerson")
 	public void delPerson(@RequestParam Map<String, Object> param) {
 		randomService.delPerson(param);
+	}
+	
+	@RequestMapping("/updatePerson")
+	public void updatePerson(@RequestParam Map<String, Object> param) {
+		System.out.println(param);
+		randomService.updatePerson(param);
 	}
 	
 }

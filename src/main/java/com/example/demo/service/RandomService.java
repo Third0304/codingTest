@@ -8,4 +8,6 @@ public interface RandomService {
 
 	void delPerson(Map<String, Object> param);
 
+	void updatePerson(Map<String, Object> param);
+
 }

@@ -21,7 +21,7 @@ function btnClick(state) {
 
 // 추가
 function addPerson() {
-	const name = document.getElementById('name');
+	const name = document.getElementById('addName');
 	
 	$.ajax({
 		type:'post',
@@ -41,7 +41,7 @@ function addPerson() {
 
 // 삭제
 function delPerson() {
-	const id = document.getElementById('id');
+	const id = document.getElementById('delId');
 	
 	$.ajax({
 		type:'post',
@@ -51,6 +51,29 @@ function delPerson() {
 		success : function() {
 			alert("success!!");
 			id.value = '';
+		 },
+        error: function (error) {
+            console.error("Error:", error);
+            alert("The Person ID does not exist.");
+        }
+	});
+};
+
+// 수정
+function updatePerson() {
+	const id = document.getElementById('upId');
+	const name = document.getElementById('upName');
+	
+	$.ajax({
+		type:'post',
+		data:{"id":id.value,
+			  "name":name.value},
+		url:"/updatePerson",
+		datatype:'json',
+		success : function() {
+			alert("success!!");
+			id.value = '';
+			name.value = '';
 		 },
         error: function (error) {
             console.error("Error:", error);
