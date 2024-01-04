@@ -2,22 +2,30 @@ package com.example.demo.controller;
 
 import java.util.Map;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.servlet.ModelAndView;
+
+import com.example.demo.service.RandomService;
 
 @Controller
 public class RandomController {
 	
+	@Autowired
+	RandomService randomService;
+	
 	@RequestMapping("/")
-	public String index() {
-		
-		return "index";
+	public ModelAndView index() {
+		ModelAndView mav = new ModelAndView("index");
+		return mav;
 	}
 	
-	@RequestMapping("/add")
-	public Map<String, Object> add(@RequestParam Map<String, Object> param) {
-		System.err.println(param);
-		return null;
+	@ResponseBody
+	@RequestMapping("/addPerson")
+	public void addPerson(@RequestParam Map<String, Object> param) {
+		randomService.addPerson(param);
 	}
 }

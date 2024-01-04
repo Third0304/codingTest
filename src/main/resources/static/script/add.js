@@ -22,14 +22,20 @@ document.addEventListener('DOMContentLoaded', function () {
 });
 
 function addPerson() {
-	const name = document.getElementById('name').value;
+	const name = document.getElementById('name');
+	
 	$.ajax({
 		type:'post',
-		data:{"name":name},
-		url:"/add",
+		data:{"name":name.value},
+		url:"/addPerson",
 		datatype:'json',
 		success : function() {
-			alert("Success!!")
-		}
+			alert("success!!");
+			name.value = '';
+		 },
+        error: function (error) {
+            console.error("Error:", error);
+            alert("A person with the same name already exists.");
+        }
 	});
 };
