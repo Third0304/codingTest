@@ -21,4 +21,9 @@
 		WHERE ID = #{id}
 	</update>
 	
+	<select id="getList" resultType="map">
+		SELECT ID, NAME FROM `USER`
+		ORDER BY CAST(ID AS SIGNED)
+	</select>
+	
 </mapper>

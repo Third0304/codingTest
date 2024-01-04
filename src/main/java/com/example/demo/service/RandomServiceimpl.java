@@ -1,5 +1,6 @@
 package com.example.demo.service;
 
+import java.util.List;
 import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -26,6 +27,11 @@ public class RandomServiceimpl implements RandomService {
 	@Override
 	public void updatePerson(Map<String, Object> param) {
 		randomDao.updatePerson(param);
+	}
+
+	@Override
+	public List<Map<String, Object>> getList() {
+		return randomDao.getList();
 	}
 
 }

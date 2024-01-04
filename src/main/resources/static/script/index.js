@@ -2,6 +2,8 @@
  * 
  */
 // 버튼 클릭시 모달창
+var r = 0;
+
 function btnClick(state) {
 	    var span = document.getElementsByClassName(state)[0];
 	    var modal = document.getElementById(state);
@@ -17,6 +19,30 @@ function btnClick(state) {
 	            modal.style.display = 'none';
 	        }
 	    });
+	    
+	    if (state == "all") {
+			if ( r == 0 ) {
+				$.ajax({
+					type:'post',
+					url:"/getList",
+					datatype:'json',
+					success : function(data) {
+						if (data.length != 0) {
+							for (var i = 0; i < data.length; i++) {
+								$("#listTable").append("<tr><td>" + data[i].ID + "</td><td>" + data[i].NAME + "</td></tr>");
+							}
+						} else {
+							$("#listTable").append("<tr><td colspan='2' style='text-align:center'>Empty</td></tr>");
+						}
+					 },
+			        error: function (error) {
+			            console.error("Error:", error);
+			            alert("error");
+			        }
+				});
+				r = 1;
+			}
+		}
 }
 
 // 추가
@@ -30,11 +56,11 @@ function addPerson() {
 		datatype:'json',
 		success : function() {
 			alert("success!!");
-			name.value = '';
+			location.reload();
 		 },
         error: function (error) {
             console.error("Error:", error);
-            alert("A person with the same name already exists.");
+            alert("error");
         }
 	});
 };
@@ -50,11 +76,11 @@ function delPerson() {
 		datatype:'json',
 		success : function() {
 			alert("success!!");
-			id.value = '';
+			location.reload();
 		 },
         error: function (error) {
             console.error("Error:", error);
-            alert("The Person ID does not exist.");
+            alert("error");
         }
 	});
 };
@@ -72,12 +98,11 @@ function updatePerson() {
 		datatype:'json',
 		success : function() {
 			alert("success!!");
-			id.value = '';
-			name.value = '';
+			location.reload();
 		 },
         error: function (error) {
             console.error("Error:", error);
-            alert("The Person ID does not exist.");
+            alert("error");
         }
 	});
 };

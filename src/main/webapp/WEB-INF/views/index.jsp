@@ -18,8 +18,8 @@
 		<div id="bottomBtn">
 			<button onclick="javascript:btnClick('add')" class="bottom-btn btn-2"><span>Add a person</span></button>
 			<button onclick="javascript:btnClick('del')" class="bottom-btn btn-2"><span>Delete a person</span></button>
-			<button onclick="javascript:btnClick('update')"class="bottom-btn btn-2"><span>Update a person</span></button>
-			<button class="bottom-btn btn-2"><span>Get all people</span></button>
+			<button onclick="javascript:btnClick('update')" class="bottom-btn btn-2"><span>Update a person</span></button>
+			<button onclick="javascript:btnClick('all')" class="bottom-btn btn-2"><span>Get all people</span></button>
 		</div>
 		
 		<div id="add" class="modalBack">
@@ -40,13 +40,30 @@
 		    </div>
 		</div>
 		
-		<div id=update class="modalBack">
+		<div id="update" class="modalBack">
 		    <div class="content-box">
 		        <span class="update close">&times;</span>
 		        <h2>Update a person</h2>
 		        <input id="upId" type="text" placeholder="Enter id">
 		        <input id="upName" type="text" placeholder="Enter name">
 		        <button class="modal-btn btn-2" onclick="javascript:updatePerson()"><span>Update</span></button>
+		    </div>
+		</div>
+		
+		<div id="all" class="modalBack">
+		    <div class="content-box">
+		        <span class="all close">&times;</span>
+		        <h2>Get all people</h2>
+		        <div id="listArea">
+		        	<table>
+		        		<tr>
+		        			<th>ID</th>
+		        			<th>NAME</th>
+		        		</tr>
+		        		<tbody id="listTable">
+		        		</tbody>
+		        	</table>
+		        </div>
 		    </div>
 		</div>
 	</div>
