@@ -9,4 +9,6 @@ public interface RandomDAO {
 
 	void addPerson(Map<String, Object> param);
 
+	void delPerson(Map<String, Object> param);
+
 }

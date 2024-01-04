@@ -2,12 +2,17 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.example.demo.dao.RandomDAO">
 	
-	<insert id="addPerson" parameterType="map">
+	<insert id="addPerson">
 		<selectKey keyProperty="id" resultType="java.lang.Long" order="BEFORE">
             SELECT COALESCE(MAX(id), 0) + 1 AS ID FROM USER
         </selectKey>
 			INSERT INTO USER(ID, NAME)
 			VALUES(#{id}, #{name})
 	</insert>
+	
+	<delete id="delPerson" parameterType="String">
+        DELETE FROM `USER`
+        WHERE ID = #{id}
+    </delete>
 	
 </mapper>

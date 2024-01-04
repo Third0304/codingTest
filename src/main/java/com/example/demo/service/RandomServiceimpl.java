@@ -18,4 +18,9 @@ public class RandomServiceimpl implements RandomService {
 		randomDao.addPerson(param);
 	}
 
+	@Override
+	public void delPerson(Map<String, Object> param) {
+		randomDao.delPerson(param);
+	}
+
 }

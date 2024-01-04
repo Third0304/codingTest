@@ -1,6 +1,6 @@
 @charset "UTF-8";
 /* Add your styles here */
-.addBack {
+.modalBack {
     display: none;
     position: fixed;
     top: 0;
@@ -37,7 +37,7 @@
     cursor: pointer;
 }
 
-#name {
+#name, #id {
 	width: 390px;
 	height: 30px;
 }

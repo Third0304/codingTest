@@ -28,4 +28,10 @@ public class RandomController {
 	public void addPerson(@RequestParam Map<String, Object> param) {
 		randomService.addPerson(param);
 	}
+	@ResponseBody
+	@RequestMapping("/delPerson")
+	public void delPerson(@RequestParam Map<String, Object> param) {
+		randomService.delPerson(param);
+	}
+	
 }
