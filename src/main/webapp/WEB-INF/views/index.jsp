@@ -27,8 +27,8 @@
 		    <div class="content-box">
 		        <span class="random close">&times;</span>
 		        <h2>Randomly into lunch groups</h2>
-		        <input id="groupSize" type="text" placeholder="Number of groups">
-		        <input id="peoplePerGroup" type="text" placeholder="Minimum size of people in a group">
+		        <input id="groupSize" type="number" min="1" placeholder="Number of groups">
+		        <input id="peoplePerGroup" type="number" min="1" placeholder="Minimum size of people in a group">
 		        <button class="modal-btn btn-2" onclick="javascript:randomStart()"><span>Start</span></button>
 		        <div id="random-area">
 		        	<table>

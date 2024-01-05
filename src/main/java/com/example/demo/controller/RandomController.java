@@ -26,45 +26,73 @@ public class RandomController {
 	
 	@RequestMapping("/addPerson")
 	public void addPerson(@RequestParam Map<String, Object> param, Model model) {
+		try {
 			randomService.addPerson(param);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
 	}
 	
 	@RequestMapping("/delPerson")
 	public void delPerson(@RequestParam Map<String, Object> param) {
-		randomService.delPerson(param);
+		try {
+			randomService.delPerson(param);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
 	}
 	
 	@RequestMapping("/updatePerson")
 	public void updatePerson(@RequestParam Map<String, Object> param) {
-		randomService.updatePerson(param);
+		try {
+			randomService.updatePerson(param);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
 	}
 	
 	@RequestMapping("/getList")
 	public List<Map<String, Object>> getList() {
-		List<Map<String, Object>> userList = randomService.getList();
-		return userList;
+		try {
+			List<Map<String, Object>> userList = randomService.getList();
+			return userList;
+		} catch (Exception e) {
+			e.printStackTrace();
+			return null;
+		}
 	}
 	
 	@RequestMapping("/randomStart")
 	public List<Map<String, Object>> randomStart() {
-		List<Map<String, Object>> rsndomList = randomService.randomStart();
-		return rsndomList;
+		try {
+			List<Map<String, Object>> rsndomList = randomService.randomStart();
+			return rsndomList;
+		} catch (Exception e) {
+			e.printStackTrace();
+			return null;
+		}
 	}
 	
-	@RequestMapping("nameCheck") //name확인
+	@RequestMapping("nameCheck")
 	public int nameCheck(@RequestParam Map<String, Object> param) {
-		int cnt = 0;
-		cnt = randomService.nameCheck(param);
-		
-		return cnt;
+		try {
+			int cnt = randomService.nameCheck(param);
+			return cnt;
+		} catch (Exception e) {
+			e.printStackTrace();
+			return 0; 
+		}
 	}
 	
-	@RequestMapping("idCheck") //name확인
+	@RequestMapping("idCheck")
 	public int idCheck(@RequestParam Map<String, Object> param) {
-		int cnt = 0;
-		cnt = randomService.idCheck(param);
-		
-		return cnt;
+		try {
+			int cnt = randomService.idCheck(param);
+			return cnt;
+		} catch (Exception e) {
+			e.printStackTrace();
+			return 0;
+		}
 	}
 	
 }

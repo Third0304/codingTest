@@ -61,10 +61,9 @@ function addPerson() {
 				alert("success!!");
 				name.value = "";
 			 },
-	        error: function(xhr, status, error) {
-		        // 실패한 경우 실행할 코드
-		        console.error("Ajax 요청 실패: " + error);
-		        alert("서버에서 오류가 발생했습니다: " + xhr.responseText);
+	       error: function (error) {
+            console.error("Error:", error);
+            alert("error");
 	        }
 		});
 };
@@ -126,17 +125,18 @@ function randomStart() {
 		datatype:'json',
 		success : function(data) {
 		    var groupedArray = [];
+		    
+		    // 그룹의 인원 수가 정해진 인원 수보다 적으면 오류 메시지를 출력하고 함수 종료
+            if (data.length < groupSize * peoplePerGroup) {
+                alert("There are not enough people to create groups with the given input.");
+                return;
+            }
 		
 		// 그룹 나누기
 		    for (let i = 0; i < groupSize; i++) {
 		        const startIdx = i * peoplePerGroup;
 		        const endIdx = startIdx + peoplePerGroup;
 		        const group = data.slice(startIdx, endIdx);
-		
-		        // 그룹의 인원 수가 정해진 인원 수보다 적다면 빈 자리를 채웁니다.
-		        while (group.length < groupSize) {
-		            group.push(null);
-		        }
 		
 		        for ( let j = 0; j < peoplePerGroup; j++ ){
 					if(group[j] != null)

@@ -27,7 +27,11 @@ $().ready(function(){
 					$('button[id=addBtn]').attr('onclick','javascript:addPerson()');
 					$('.name-chk').focus();
 				}
-			}
+			},
+	       error: function (error) {
+            console.error("Error:", error);
+            alert("error");
+	        }
 		});
 	});	
 	
@@ -53,7 +57,11 @@ $().ready(function(){
 					$('button[id=delBtn]').attr('onclick','alert("The Person ID does not exist")');
 					$('.id-chk').focus();
 				}
-			}
+			},
+	       error: function (error) {
+            console.error("Error:", error);
+            alert("error");
+	        }
 		});
 	});	
 	
@@ -83,7 +91,11 @@ $('.id-chk-up').on('propertychange change input paste', function () {
             }
 
             updateButtonStatus();
-        }
+        },
+	       error: function (error) {
+            console.error("Error:", error);
+            alert("error");
+	        }
     });
 });
 
@@ -110,7 +122,11 @@ $('.name-chk-up').on('propertychange change input paste', function () {
             }
 
             updateButtonStatus();
-        }
+        },
+	       error: function (error) {
+            console.error("Error:", error);
+            alert("error");
+	        }
     });
 });
 
