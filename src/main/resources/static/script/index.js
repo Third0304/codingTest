@@ -154,3 +154,10 @@ function randomStart() {
         }
 	});
 };
+
+
+ function checkEnter(event, btn) {
+        if (event.key === "Enter") {
+            document.getElementById(btn).click(); 
+        }
+    }

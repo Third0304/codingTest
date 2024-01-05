@@ -32,9 +32,6 @@
 		        <button class="modal-btn btn-2" onclick="javascript:randomStart()"><span>Start</span></button>
 		        <div id="random-area">
 		        	<table>
-		        		<tr>
-		        			<th>Groups</th>
-		        		</tr>
 		        		<tfoot id="random-table"></tfoot>
 		        	</table>
 		        </div>
@@ -45,7 +42,7 @@
 		    <div class="content-box">
 		        <span class="add close">&times;</span>
 		        <h2>Add a person</h2>
-		        <input id="addName" class="name-chk" type="text" placeholder="Enter name">
+		        <input id="addName" class="name-chk" type="text" placeholder="Enter name" onkeypress="checkEnter(event, 'addBtn')">
 		        <font id="warning" size="2" color="red"></font><br>
 		        <button id="addBtn" class="modal-btn btn-2" onclick="javascript:addPerson()"><span>Add</span></button>
 		    </div>
@@ -55,7 +52,7 @@
 		    <div class="content-box">
 		        <span class="del close">&times;</span>
 		        <h2>Delete a person</h2>
-		        <input id="delId" class="id-chk" type="text" placeholder="Enter id">
+		        <input id="delId" class="id-chk" type="text" placeholder="Enter id" onkeypress="checkEnter(event, 'delBtn')">
 		        <font id="warning-id" size="2" color="red"></font><br>
 		        <button id="delBtn" class="modal-btn btn-2" onclick="javascript:delPerson()"><span>Delete</span></button>
 		    </div>
@@ -65,9 +62,9 @@
 		    <div class="content-box">
 		        <span class="update close">&times;</span>
 		        <h2>Update a person</h2>
-		        <input id="upId" class="id-chk-up" type="text" placeholder="Enter id">
+		        <input id="upId" class="id-chk-up" type="text" placeholder="Enter id" onkeypress="checkEnter(event, 'upBtn')">
 		        <font id="warning-id" size="2" color="red"></font><br>
-		        <input id="upName" class="name-chk-up" type="text" placeholder="Enter name">
+		        <input id="upName" class="name-chk-up" type="text" placeholder="Enter name" onkeypress="checkEnter(event, 'upBtn')">
 		        <font id="warning" size="2" color="red"></font><br>
 		        <button id="upBtn" class="modal-btn btn-2" onclick="javascript:updatePerson()"><span>Update</span></button>
 		    </div>

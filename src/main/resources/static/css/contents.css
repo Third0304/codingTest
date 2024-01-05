@@ -43,12 +43,18 @@ input {
 	margin: 5px;
 }
 
+#listArea {
+	overflow: auto;
+	height: 400px;
+}
+
 #listArea table {
 	margin: 0 auto;
 	width: 350px;
 	border: 1px solid black;
 	border-collapse: collapse;
 }
+
 #listArea th {
 	border: 1px solid black;
 	border-collapse: collapse;
