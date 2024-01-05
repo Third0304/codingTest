@@ -6,8 +6,9 @@
 <meta charset="UTF-8">
 <link rel="stylesheet" type="text/css" href="/css/index.css">
 <link rel="stylesheet" type="text/css" href="/css/contents.css">
+<script src="https://code.jquery.com/jquery-latest.min.js"></script>
 <script type="text/javascript" src="/script/index.js"></script>
-<script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+<script type="text/javascript" src="/script/duplicate.js"></script>
 <title>Coding Test</title>
 </head>
 <body>
@@ -44,8 +45,9 @@
 		    <div class="content-box">
 		        <span class="add close">&times;</span>
 		        <h2>Add a person</h2>
-		        <input id="addName" type="text" placeholder="Enter name">
-		        <button class="modal-btn btn-2" onclick="javascript:addPerson()"><span>Add</span></button>
+		        <input id="addName" class="name-chk" type="text" placeholder="Enter name">
+		        <font id="warning" size="2" color="red"></font><br>
+		        <button id="addBtn" class="modal-btn btn-2" onclick="javascript:addPerson()"><span>Add</span></button>
 		    </div>
 		</div>
 		
@@ -53,8 +55,9 @@
 		    <div class="content-box">
 		        <span class="del close">&times;</span>
 		        <h2>Delete a person</h2>
-		        <input id="delId" type="text" placeholder="Enter id">
-		        <button class="modal-btn btn-2" onclick="javascript:delPerson()"><span>Delete</span></button>
+		        <input id="delId" class="id-chk" type="text" placeholder="Enter id">
+		        <font id="warning-id" size="2" color="red"></font><br>
+		        <button id="delBtn" class="modal-btn btn-2" onclick="javascript:delPerson()"><span>Delete</span></button>
 		    </div>
 		</div>
 		
@@ -62,9 +65,11 @@
 		    <div class="content-box">
 		        <span class="update close">&times;</span>
 		        <h2>Update a person</h2>
-		        <input id="upId" type="text" placeholder="Enter id">
-		        <input id="upName" type="text" placeholder="Enter name">
-		        <button class="modal-btn btn-2" onclick="javascript:updatePerson()"><span>Update</span></button>
+		        <input id="upId" class="id-chk-up" type="text" placeholder="Enter id">
+		        <font id="warning-id" size="2" color="red"></font><br>
+		        <input id="upName" class="name-chk-up" type="text" placeholder="Enter name">
+		        <font id="warning" size="2" color="red"></font><br>
+		        <button id="upBtn" class="modal-btn btn-2" onclick="javascript:updatePerson()"><span>Update</span></button>
 		    </div>
 		</div>
 		

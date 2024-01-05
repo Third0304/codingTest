@@ -28,4 +28,14 @@
 		ORDER BY RAND()
 	</select>
 	
+	<select id="nameCheck" parameterType="map" resultType="int">
+		SELECT COUNT(NAME) FROM `USER`
+		WHERE NAME = #{name}
+	</select>
+	
+	<select id="idCheck" parameterType="map" resultType="int">
+		SELECT COUNT(ID) FROM `USER`
+		WHERE ID = #{id}
+	</select>
+	
 </mapper>

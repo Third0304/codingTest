@@ -18,4 +18,8 @@ public interface RandomDAO {
 
 	List<Map<String, Object>> randomStart();
 
+	int nameCheck(Map<String, Object> param);
+
+	int idCheck(Map<String, Object> param);
+
 }

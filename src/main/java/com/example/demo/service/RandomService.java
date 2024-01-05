@@ -15,4 +15,8 @@ public interface RandomService {
 
 	List<Map<String, Object>> randomStart();
 
+	int nameCheck(Map<String, Object> param);
+
+	int idCheck(Map<String, Object> param);
+
 }

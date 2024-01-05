@@ -1,8 +1,8 @@
 /**
  * 
  */
-// 조건을 위한 변수
-var r = 0;
+// 조건을 위한 전역변수
+var listCnk = 0;
 
 // 버튼 클릭시 모달창
 function btnClick(state) {
@@ -25,7 +25,7 @@ function btnClick(state) {
 	    
 	    // 리스트 불러오기
 	    if (state == "all") {
-			if ( r == 0 ) {
+			if ( listCnk == 0 ) {
 				$.ajax({
 					type:'post',
 					url:"/getList",
@@ -44,7 +44,7 @@ function btnClick(state) {
 			            alert("error");
 			        }
 				});
-				r = 1;
+				listCnk = 1;
 			}
 		}
 }
@@ -52,21 +52,21 @@ function btnClick(state) {
 // 추가
 function addPerson() {
 	const name = document.getElementById('addName');
-	
-	$.ajax({
-		type:'post',
-		data:{"name":name.value},
-		url:"/addPerson",
-		datatype:'json',
-		success : function() {
-			alert("success!!");
-			name.value = "";
-		 },
-        error: function (error) {
-            console.error("Error:", error);
-            alert("error");
-        }
-	});
+		$.ajax({
+			type:'post',
+			data:{"name":name.value},
+			url:"/addPerson",
+			datatype:'json',
+			success : function() {
+				alert("success!!");
+				name.value = "";
+			 },
+	        error: function(xhr, status, error) {
+		        // 실패한 경우 실행할 코드
+		        console.error("Ajax 요청 실패: " + error);
+		        alert("서버에서 오류가 발생했습니다: " + xhr.responseText);
+	        }
+		});
 };
 
 // 삭제

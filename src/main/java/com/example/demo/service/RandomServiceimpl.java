@@ -39,4 +39,14 @@ public class RandomServiceimpl implements RandomService {
 		return randomDao.randomStart();
 	}
 
+	@Override
+	public int nameCheck(Map<String, Object> param) {
+		return randomDao.nameCheck(param);
+	}
+
+	@Override
+	public int idCheck(Map<String, Object> param) {
+		return randomDao.idCheck(param);
+	}
+
 }
