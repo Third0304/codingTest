@@ -51,65 +51,87 @@ function btnClick(state) {
 
 // 추가
 function addPerson() {
-	const name = document.getElementById('addName');
-		$.ajax({
-			type:'post',
-			data:{"name":name.value},
-			url:"/addPerson",
-			datatype:'json',
-			success : function() {
-				alert("success!!");
-				name.value = "";
-			 },
-	       error: function (error) {
+    const nameInput = document.getElementById('addName');
+    const name = nameInput.value.trim();  
+
+    if (name === "") {
+        alert("Please enter a valid name.");
+        return;
+    }
+
+    $.ajax({
+        type: 'post',
+        data: { "name": name },
+        url: "/addPerson",
+        datatype: 'json',
+        success: function () {
+            alert("Success!!");
+            nameInput.value = "";
+        },
+        error: function (error) {
             console.error("Error:", error);
-            alert("error");
-	        }
-		});
+            alert("Error");
+        }
+    });
 };
+
 
 // 삭제
 function delPerson() {
-	const id = document.getElementById('delId');
-	
-	$.ajax({
-		type:'post',
-		data:{"id":id.value},
-		url:"/delPerson",
-		datatype:'json',
-		success : function() {
-			alert("success!!");
-			id.value = "";
-		 },
+    const idInput = document.getElementById('delId');
+    const id = idInput.value.trim();
+
+    if (id === "") {
+        alert("Please enter a valid ID.");
+        return;
+    }
+
+    $.ajax({
+        type: 'post',
+        data: { "id": id },
+        url: "/delPerson",
+        datatype: 'json',
+        success: function () {
+            alert("Success!!");
+            idInput.value = "";
+        },
         error: function (error) {
             console.error("Error:", error);
-            alert("error");
+            alert("Error");
         }
-	});
+    });
 };
+
 
 // 수정
 function updatePerson() {
-	const id = document.getElementById('upId');
-	const name = document.getElementById('upName');
-	
-	$.ajax({
-		type:'post',
-		data:{"id":id.value,
-			  "name":name.value},
-		url:"/updatePerson",
-		datatype:'json',
-		success : function() {
-			alert("success!!");
-			id.value = "";
-			name.value = "";
-		 },
+    const idInput = document.getElementById('upId');
+    const nameInput = document.getElementById('upName');
+    const id = idInput.value.trim(); 
+    const name = nameInput.value.trim(); 
+    
+    if (id === "" || name === "") {
+        alert("Please enter valid ID and name.");
+        return;
+    }
+
+    $.ajax({
+        type: 'post',
+        data: { "id": id, "name": name },
+        url: "/updatePerson",
+        datatype: 'json',
+        success: function () {
+            alert("Success!!");
+            idInput.value = "";
+            nameInput.value = "";
+        },
         error: function (error) {
             console.error("Error:", error);
-            alert("error");
+            alert("Error");
         }
-	});
+    });
 };
+
 
 // 랜덤
 function randomStart() {
