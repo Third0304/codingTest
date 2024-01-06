@@ -85,21 +85,23 @@ function delPerson() {
         alert("Please enter a valid ID.");
         return;
     }
-
-    $.ajax({
-        type: 'post',
-        data: { "id": id },
-        url: "/delPerson",
-        datatype: 'json',
-        success: function () {
-            alert("Success!!");
-            idInput.value = "";
-        },
-        error: function (error) {
-            console.error("Error:", error);
-            alert("Error");
-        }
-    });
+	
+	if ( confirm("Are you sure you want to delete it?") ){
+	    $.ajax({
+	        type: 'post',
+	        data: { "id": id },
+	        url: "/delPerson",
+	        datatype: 'json',
+	        success: function () {
+	            alert("Success!!");
+	            idInput.value = "";
+	        },
+	        error: function (error) {
+	            console.error("Error:", error);
+	            alert("Error");
+	        }
+	    });
+	}
 };
 
 
