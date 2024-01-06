@@ -15,13 +15,14 @@ function btnClick(state) {
 	        modal.style.display = 'none';
 	        location.reload();
 	    });
-	
-	    window.addEventListener('click', function (event) {
+		
+		// 빈 배경 클릭시 창 닫기 
+	  /*  window.addEventListener('click', function (event) {
 	        if (event.target === modal) {
 	            modal.style.display = 'none';
 	            location.reload();
 	        }
-	    });
+	    });*/
 	    
 	    // 리스트 불러오기
 	    if (state == "all") {
